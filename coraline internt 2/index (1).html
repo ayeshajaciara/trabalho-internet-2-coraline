@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coraline</title>
+    <link rel="shortcut icon" href="estrela-1.png" type="image/x-icon">
+    <style>
+        /* Importação da fonte */
+        @import url('https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: transparent;
+            color: #333;
+            font-size: 22px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url('fundo.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .cabecalho {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            position: relative;
+            font-family: 'Sue Ellen Francisco', cursive;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .logo {
+            width: 200px;
+        }
+
+        .titulo-container {
+            margin-top: 20px;
+        }
+
+        .titulo {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .apresentacao {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .conteudo {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .mundo-coraline {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: center; /* Centralizar o conteúdo */
+        }
+
+        .subtitulo {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'Righteous', sans-serif;
+        }
+
+        .descricao {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-family: 'Righteous', cursive;
+        }
+
+        .imagem {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+        }
+
+        .botao-comprar {
+            display: flex;
+            justify-content: center;
+        }
+
+        .botao-imagem {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            padding: 0;
+        }
+
+        .botao-imagem img {
+            height: 100px;
+        }
+
+        .botao-imagem img:last-child {
+            display: none;
+        }
+
+        .botao-imagem:hover img:first-child {
+            display: none;
+        }
+
+        .botao-imagem:hover img:last-child {
+            display: inline-block;
+            animation: bounce 0.5s ease; /* Adicionando uma nova animação */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .comentarios-coraline {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .comentario {
+            margin-bottom: 20px;
+        }
+
+        .data {
+            font-style: italic;
+            color: #777;
+        }
+
+        .rodape {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .creditos {
+            font-size: 26px;
+        }
+
+        .autor {
+            font-style: italic;
+            font-family: 'Sue Ellen Francisco', cursive;
+        }
+
+        .icone-usuario {
+            width: 50px;
+            height: auto;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .estrelas-container {
+            display: flex;
+        }
+
+        .estrela {
+            width: 100px;
+            height: auto;
+            margin: 0 5px;
+        }
+
+        @keyframes moverEstrela1 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes moverEstrela2 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes moverEstrela3 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes moverEstrela4 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes moverEstrela5 {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .estrela-1 {
+            animation: moverEstrela1 2s infinite;
+        }
+
+        .estrela-2 {
+            animation: moverEstrela2 2s infinite;
+        }
+
+        .estrela-1,
+        .estrela-2,
+        .estrela-3,
+        .estrela-4,
+        .estrela-5 {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+
+        .estrela-1 {
+            top: 90%;
+            left: 10%;
+            animation: moverEstrela1 2s infinite;
+        }
+
+        .estrela-2 {
+            top: 70%;
+            right: 10%;
+            animation: moverEstrela2 2s infinite;
+        }
+
+        .estrela-3 {
+            top: 40%;
+            left: 60%;
+            animation: moverEstrela3 2.5s infinite;
+        }
+
+        .estrela-4 {
+            top: 40%;
+            left: 30%;
+            animation: moverEstrela4 2.5s infinite;
+        }
+
+        .estrela-5 {
+            top: 50%;
+            right: 40%;
+            animation: moverEstrela5 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecalho">
+        <img src="titulo.png" alt="title" class="logo">
+        <div class="titulo-container">
+            <h1 class="titulo">Explore o mundo extraordinário da obra Coraline.</h1>
+            <p class="apresentacao">Descubra um universo macabro e fascinante onde nada é o que parece.</p>
+        </div>
+    </header>
+    <main class="conteudo">
+        <div class="estrelas-container">
+            <img src="estrela-1.png" alt="" class="estrela-1">
+            <img src="estrela-2.png" alt="" class="estrela-2">
+            <img src="estrela-1.png" alt="" class="estrela-3">
+            <img src="estrela-2.png" alt="" class="estrela-4">
+            <img src="estrela-1.png" alt="" class="estrela-5">
+        </div>
+        <section class="mundo-coraline">
+            <div class="subtitulo-container">
+                <h2 class="subtitulo">O Mundo de Coraline</h2>
+            </div>
+            <div class="imagem-container">
+                <img src="livro 1.png" alt="Livro do Mundo de Coraline" class="imagem">
+            </div>
+            <div class="descricao-container">
+                <p class="descricao">
+                    Ao abrir uma porta misteriosa na sala de casa, a menina se depara com um lugar macabro e fascinante. Ali, naquele outro mundo, seus outros pais são criaturas muito pálidas, com botões negros no lugar dos olhos, sempre dispostos a lhe dar atenção, fazer suas comidas preferidas e mostrar os brinquedos mais divertidos.
+                </p>
+            </div>
+            <div class="botao-comprar">
+                <a href="https://a.co/d/gOyHM9p" class="botao-imagem" target="_blank">
+                    <img src="botao-1.png" alt="Botão de Comprar">
+                    <img src="botao-2.png" alt="botão">
+                </a>
+            </div>
+        </section>
+        <section class="comentarios-coraline">
+            <h2 class="subtitulo">Comentários sobre Coraline</h2>
+            <div class="comentario">
+                <img src="icone-user.png" alt="Usuário" class="icone-usuario">
+                <div class="estrelas-container">
+                    <img src="estrelas.png" alt="Estrela" class="estrela">
+                </div>
+                <h3 class="data">Avaliado no Brasil em 5 de abril de 2024</h3>
+                <p class="conteudo">
+                    Maravilhoso!! A Qualidade é maravilhosa amei d+, ilustrações perfeitas e o marca-página é muito bonito a história é muito interessante resumindo: eu adorei!!
+                </p>
+            </div>
+            <div class="comentario">
+                <img src="icone-user.png" alt="Usuário" class="icone-usuario">
+                <div class="estrelas-container">
+                    <img src="estrelas.png" alt="Estrela" class="estrela">
+                </div>
+                <h3 class="data">Avaliado no Brasil em 31 de janeiro de 2024</h3>
+                <p class="conteudo">
+                    Um livro excepcional, de uma leitura breve e que atrai o leitor. Tem um certo mistério dá até suspense, que faz o leitor se prender a obra. Além do mais, o livro é ilustrado, o que deixa tudo ainda mais interessante.
+                </p>
+            </div>
+            <div class="comentario">
+                <img src="icone-user.png" alt="Usuário" class="icone-usuario">
+                <div class="estrelas-container">
+                    <img src="estrelas.png" alt="Estrela" class="estrela">
+                </div>
+                <h3 class="data">Avaliado no Brasil em 14 de abril de 2024</h3>
+                <p class="conteudo">
+                    Uma pitada de "pura fantasia" torna a realidade do
+                    mundo real mais leve. Este outro mundo deixa este
+                    nosso (real) mais palatável.                    
+                </p>
+            </div>
+        </section>
+    </main>
+    <footer class="rodape">
+        <div class="creditos">
+            <p class="autor">Ayesha Jaciara do Nascimento Menezes - Tarcísio Edson Castro de Souza</p>
+        </div>
+    </footer>
+</body>
+</html>
